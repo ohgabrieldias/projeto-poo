@@ -1,5 +1,6 @@
-public class Main
-{  
+package neander;
+
+public class Xor {  
     public static void main(String[] args)
     {
         boolean a = true;
