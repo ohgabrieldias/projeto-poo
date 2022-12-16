@@ -45,20 +45,50 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
+		int []tmp;
 		int op = 0;
 		Pc pc = new Pc();
+		Ula ula = new Ula();
 		Adder adder = new Adder();
 		Accumulator ac = new Accumulator();
 		Memoria mem = new Memoria();
+		Mux mux = new Mux();
+		Rem rem = new Rem();
+		Rdm rdm = new Rdm();
 		
-		//getOpcode(memo[0]);
-		ac.printAc();
-		System.out.println(getRDM(mem.memo[0]));
+		rdm.cargaRDM(pc.PC);
+		mux.sel = 0; //sinal de controle p/ pegar valor do pc
+		mem.read = 1;
+		rem.cargaREM(mux.getAddr(pc.PC, rdm.RDM));		//carrega REM com valor do PC
+		rem.printREM();
+		
+		if(mem.read == 1) rdm.cargaRDM(mem.read(rem.getREM()));		//lê da memória na posição REM e armazena do RDM
+		rdm.printRDM();
+		
+		pc.incrementa_pc();
+		getOpcode(mem.memo[pc.getPc()]);
+		pc.printPc();
 		
 		
-		if(opcode[0]== 0 && opcode[1]== 0 && opcode[2]== 0 && opcode[3]== 0) ac.AC = mem.memo[getRDM(mem.memo[pc.getPc()])];
-		ac.printAc();
+		if(opcode[0]== 0 && opcode[1]== 0 && opcode[2]== 0 && opcode[3]== 1) {
+			ula.selULA = 0;
+			ac.AC = ula.opULA(mem.memo[pc.getPc()], pc.PC);
+			System.out.print("add\n");
+			ac.printAc();
+			pc.incrementa_pc();
+			pc.printPc();
+		}
+		
+		if(opcode[0]== 0 && opcode[1]== 0 && opcode[2]== 0 && opcode[3]== 0) {
+			ac.AC = mem.memo[getRDM(mem.memo[pc.getPc()])];
+			System.out.print("lda\n");
+			ac.printAc();
+			pc.incrementa_pc();
+			pc.printPc();
+		}
+		
 		
 	}
+	
 
 }

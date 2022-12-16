@@ -8,7 +8,10 @@ public class Pc {
 		PC = pc;
 	}
 	
-
+	public void cargaPC(int []pc){	//sinal de controle
+		PC = pc;	
+	}
+	
 	void incrementa_pc() {
 		int temp = binaryToDecimal() + 1;
 		decimalToBinary(temp);
@@ -38,6 +41,7 @@ public class Pc {
 		}
 	}
 	void printPc() {
+	   System.out.print("PC = "); 
 	   for(int i = 0;i <=PC.length - 1;i++){    
 	       System.out.print(PC[i]);    
 	     }
