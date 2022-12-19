@@ -93,7 +93,8 @@ public class unitControl {
 				prox_state = 3;
 			break;
 			case 3:
-				prox_state = 4;
+				if((op == 9 && nz[0] == 0) || (op == 10 && nz[1] == 0) || op == 0) prox_state = 0;	//NOP JN if N=0 JZ if Z=0
+				else prox_state = 4;
 			break;
 			case 4:
 				prox_state = 5;
