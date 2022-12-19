@@ -6,7 +6,7 @@ public class Memoria {
 	public int write = 0;
 	
 	protected int[][] memo = {
-			{0,0,1,0,0,1,0,0}, //#0		AC← MEM(end) //LDA 4 
+			{0,0,0,1,0,1,0,0}, //#0		AC← MEM(end) //LDA 4 
 			{0,0,0,0,0,1,0,0}, //#1		end 4
 			{0,0,1,1,0,1,1,1}, //#2		AC← AC + 7  ADD 3
 			{0,0,0,0,0,0,1,1}, //#3		 7
@@ -22,7 +22,10 @@ public class Memoria {
 			{0,0,0,0,0,1,0,1}, //#13
 			{1,0,1,1,0,1,0,1}
 		};
-	
+
+	public void printMemo() {
+		
+	}
 	public void write(int []x, int y) {
 		if (write == 1) {
 			memo[y] = x;
