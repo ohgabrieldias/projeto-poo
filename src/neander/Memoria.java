@@ -1,10 +1,6 @@
 package neander;
 
 public class Memoria {
-	
-	public int read = 0;
-	public int write = 0;
-	
 	protected static int[][] memo = {
 			{0,0,0,1,0,1,0,0}, //#0		AC← MEM(end) //LDA 4 
 			{0,0,0,0,0,1,0,0}, //#1		end 4
@@ -45,9 +41,7 @@ public class Memoria {
 	}
 
 	public void write(int []x, int y) {
-		if (write == 1) {
-			memo[y] = x;
-		}
+		memo[y] = x;
 	}
 	
 	public int []read (int y) {
