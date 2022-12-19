@@ -1,8 +1,9 @@
 package neander;
 
-public class N {
-	protected int N = 0;
-	public N() {
+public class NZ {
+	protected int []NZ = {0,0};
+	
+	public NZ() {
 		// TODO Auto-generated constructor stub
 	}
 

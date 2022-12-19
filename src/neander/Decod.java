@@ -33,10 +33,10 @@ public class Decod {
 			tmp = 8;	//JMP
 		}
 		if(ri[0] == 1 && ri[1] == 0 && ri[2] == 0 && ri[3] == 1) {
-			tmp = 9;	//JZ
+			tmp = 9;	//JN
 		}
 		if(ri[0] == 1 && ri[1] == 0 && ri[2] == 1 && ri[3] == 0) {
-			tmp = 10;	//LDA
+			tmp = 10;	//JZ
 		}
 		if(ri[0] == 1 && ri[1] == 1 && ri[2] == 1 && ri[3] == 1) {
 			tmp = 15;	//HLT

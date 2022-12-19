@@ -82,14 +82,13 @@ public class Main {
 		Mux mux = new Mux();
 		Rem rem = new Rem();
 		Rdm rdm = new Rdm();
-		N regN = new N();
-		Z regZ = new Z();
+		NZ regNZ = new NZ();
 		Ri ri = new Ri();
 		int i = 0;
 		
 		unitControl.state = 0; //define estado inicial
 		while(pc.getPc() < 12) {				
-			control(unitControl.set_state(Decod.decod(ri.getOpcode())));
+			control(unitControl.set_state(Decod.decod(ri.getOpcode()),regNZ.NZ));
 			mux.sel = sel;
 			ula.selULA = selULA;
 			
@@ -107,8 +106,8 @@ public class Main {
 				pc.incrementa_pc();
 			}
 			if(cargaNZ == 1) {
-				if(ac.getAC() == 0) regZ.Z = 1;
-				if(ac.eh_negativo()) regN.N = 1;
+				if(ac.getAC() == 0) regNZ.NZ[1] = 1;
+				if(ac.eh_negativo())regNZ.NZ[0] = 1;
 			}
 			
 			pc.printPc();			

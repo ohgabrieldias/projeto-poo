@@ -8,7 +8,7 @@ public class unitControl {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static int []set_state(int op) {
+	public static int []set_state(int op, int []nz) {
 		int []stt = new int [11];
 		
 		switch (state) {
@@ -29,12 +29,19 @@ public class unitControl {
 				System.out.println("\nestado 2");
 			break;
 			case 3:
-				int []tmp_ctrl3 = {0,0,0,1,0,0,0,0,0,0,0}; //start
-				stt = tmp_ctrl3;
+				if((op == 9 && nz[0] == 0) || (op == 10 && nz[1] == 0)) {	//JN if N=0 JZ if Z=0
+					int []tmp_ctrl3 = {0,1,0,0,0,0,0,0,0,0,0}; //incrementaPC
+					stt = tmp_ctrl3;
+				}
+				else {
+					int []tmp_ctrl3 = {0,0,0,1,0,0,0,0,0,0,0}; //start
+					stt = tmp_ctrl3;
+				}
+				
 				System.out.println("\nestado 3");
 				break;
 			case 4:
-				if(op == 8) {
+				if(op == 8 || (op == 9 && nz[0] == 1) || (op == 10 && nz[1] == 1)) {	//JMP JN if N=1 JZ if Z=1
 					int []tmp_ctrl4 = {0,0,0,0,1,0,0,0,0,0,0}; //sel=1,carga RDM
 					stt = tmp_ctrl4;
 				}
@@ -45,8 +52,8 @@ public class unitControl {
 				System.out.println("\nestado 4");
 			break;
 			case 5:
-				if(op == 8) {
-					int []tmp_ctrl5 = {1,0,0,0,0,0,0,0,0,0,0}; //sel=1,carga REM
+				if(op == 8 || (op == 9 && nz[0] == 1) || (op == 10 && nz[1] == 1)) {	//JMP JN if N=1 JZ if Z=1
+					int []tmp_ctrl5 = {1,0,0,0,0,0,0,0,0,0,0}; //cargaPC
 					stt = tmp_ctrl5;
 				}
 				else {
@@ -92,7 +99,7 @@ public class unitControl {
 				prox_state = 5;
 			break;
 			case 5:
-				if(op == 8 || op == 9) prox_state = 0; //JMP JZ if Z=1
+				if(op == 8 || (op == 9 && nz[0] == 1) || (op == 10 && nz[1] == 1)) prox_state = 0; //JMP JN if N=1 JZ if Z=1
 				else prox_state = 6;
 			break;
 			case 6:
