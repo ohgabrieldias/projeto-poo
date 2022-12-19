@@ -22,9 +22,11 @@ public class Ula {
 				tmp = y;
 				System.out.println("\nLOAD");
 				break;
-			case 2:			//ULA(OR)
+			case 2:			//ULA(NOT)
 				break;
 			case 3:			//ULA(OR)
+				break;
+			case 4:			//ULA(AND)
 				break;
 		}
 		return tmp;

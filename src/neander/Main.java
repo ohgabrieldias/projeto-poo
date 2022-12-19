@@ -98,7 +98,7 @@ public class Main {
 				//rem.printREM();
 			}
 			if(read == 1) rdm.cargaRDM(mem.read(rem.getREM()));		//lê da memória na posição REM e armazena do RDM
-			if(write == 1) mem.write(ac.AC, rdm.getRDM());
+			if(write == 1) mem.write(ac.AC, rem.getREM());
 			if(cargaRDM == 1) rdm.cargaRDM(pc.PC);
 			if(cargaPC == 1) pc.cargaPC(rdm.RDM); 		//caso JMP JZ JN
 			if(cargaRI == 1) ri.cargaRI(rdm.RDM); 		//etapa final busca da instrução
@@ -119,5 +119,6 @@ public class Main {
 			
 			i++;
 		}
+		Memoria.printMemo();
 	}
 }
