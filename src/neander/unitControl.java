@@ -33,6 +33,12 @@ public class unitControl {
 					int []tmp_ctrl3 = {0,1,0,0,0,0,0,0,0,0,0}; //incrementaPC
 					stt = tmp_ctrl3;
 				}
+				
+				else if (op == 6) {	//NOT
+					System.out.println("\nnot");
+					int []tmp_ctrl7 = {0,0,0,0,0,0,0,1,0,1,0}; //cargaAC, cargaNZ, selULA
+					stt = tmp_ctrl7;
+				}
 				else {
 					int []tmp_ctrl3 = {0,0,0,1,0,0,0,0,0,0,0}; //start
 					stt = tmp_ctrl3;
@@ -70,12 +76,12 @@ public class unitControl {
 			case 7:
 				if(op == 2) {
 					System.out.println("load");
-					int []tmp_ctrl7 = {0,0,0,0,0,0,0,1,1,1,0}; //sel=1,carga RDM
+					int []tmp_ctrl7 = {0,0,0,0,0,0,0,1,1,1,0}; //cargaAC, cargaNZ, selULA
 					stt = tmp_ctrl7;
 				}
 				else if (op == 3) {
 					System.out.println("\nadd");
-					int []tmp_ctrl7 = {0,0,0,0,0,0,0,1,0,1,0}; //sel=1,carga RDM
+					int []tmp_ctrl7 = {0,0,0,0,0,0,0,1,0,1,0}; //cargaAC, cargaNZ, selULA
 					stt = tmp_ctrl7;
 				}
 				System.out.println("\nestado 7");
@@ -93,7 +99,7 @@ public class unitControl {
 				prox_state = 3;
 			break;
 			case 3:
-				if((op == 9 && nz[0] == 0) || (op == 10 && nz[1] == 0) || op == 0) prox_state = 0;	//NOP JN if N=0 JZ if Z=0
+				if((op == 9 && nz[0] == 0) || (op == 10 && nz[1] == 0) || op == 0 || op == 6) prox_state = 0;	//NOP JN if N=0 JZ if Z=0
 				else prox_state = 4;
 			break;
 			case 4:
