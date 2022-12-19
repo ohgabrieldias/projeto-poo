@@ -5,9 +5,6 @@ public class Ula {
 	private And and = new And();
 	private Or or = new Or();
 	
-	private int regN = 0;
-	private int regZ = 0;
-	
 	public int selULA = 0; //sinal de controle
 	
 	public Ula() {
@@ -16,10 +13,14 @@ public class Ula {
 					//opernd  pc
 	public int []opULA(int x[],int y[]) {
 		int []tmp = new int [8];
+		System.out.printf("selULA = %d", selULA);
 		switch (selULA) {
 			case 0:	tmp = adder.sum(x, y);		//ULA(ADD)
+				System.out.println("\nSOMA");
 				break;
-			case 1:			//ULA(LDA)
+			case 1:		//ULA(LDA)
+				tmp = y;
+				System.out.println("\nLOAD");
 				break;
 			case 2:			//ULA(OR)
 				break;

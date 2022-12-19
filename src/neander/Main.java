@@ -1,7 +1,21 @@
 package neander;
 
 public class Main {
+	
 	public static int []opcode= new int[4];
+	
+	public static int cargaPC = 0;
+	public static int incrementaPC = 0;
+	public static int sel = 0;
+	public static int cargaREM = 0;
+	public static int read = 0;
+	public static int write = 0;
+	public static int cargaRDM = 0;
+	public static int cargaAC = 0;
+	public static int selULA = 0;
+	public static int cargaNZ = 0;
+	public static int cargaRI = 0;
+	
 	public Main() {
 		// TODO Auto-generated constructor stub
 	}
@@ -13,6 +27,19 @@ public class Main {
         }
 	}
 	
+	public static void control(int []ctrl) {
+		cargaPC 		= ctrl[0];
+		incrementaPC 	= ctrl[1];
+		sel 			= ctrl[2];
+		cargaREM		= ctrl[3];
+		read 			= ctrl[4];
+		write 			= ctrl[5];
+		cargaRDM 		= ctrl[6];
+		cargaAC 		= ctrl[7];
+		selULA 			= ctrl[8];
+		cargaNZ			= ctrl[9];
+		cargaRI 		= ctrl[10];
+	}
 	public static int binaryToDecimal(int []vect) {
 		int result = 0;
 		for(int i=(vect.length -1) ; i >= 0; i--){
@@ -55,40 +82,42 @@ public class Main {
 		Mux mux = new Mux();
 		Rem rem = new Rem();
 		Rdm rdm = new Rdm();
+		N regN = new N();
+		Z regZ = new Z();
+		Ri ri = new Ri();
+		int i = 0;
 		
-		rdm.cargaRDM(pc.PC);
-		mux.sel = 0; //sinal de controle p/ pegar valor do pc
-		mem.read = 1;
-		rem.cargaREM(mux.getAddr(pc.PC, rdm.RDM));		//carrega REM com valor do PC
-		rem.printREM();
-		
-		if(mem.read == 1) rdm.cargaRDM(mem.read(rem.getREM()));		//lê da memória na posição REM e armazena do RDM
-		rdm.printRDM();
-		
-		pc.incrementa_pc();
-		getOpcode(mem.memo[pc.getPc()]);
-		pc.printPc();
-		
-		
-		if(opcode[0]== 0 && opcode[1]== 0 && opcode[2]== 0 && opcode[3]== 1) {
-			ula.selULA = 0;
-			ac.AC = ula.opULA(mem.memo[pc.getPc()], pc.PC);
-			System.out.print("add\n");
+		unitControl.state = 0; //define estado inicial
+		while(pc.getPc() < 12) {				
+			control(unitControl.set_state(Decod.decod(ri.getOpcode())));
+			mux.sel = sel;
+			ula.selULA = selULA;
+			
+			//System.out.println(sel);
+			if(cargaREM == 1) {	//sinal de controle p/ pegar valor do pc
+				rem.cargaREM(mux.getAddr(pc.PC, rdm.RDM));		//carrega REM com valor do PC
+				//rem.printREM();
+			}
+			if(read == 1) rdm.cargaRDM(mem.read(rem.getREM()));		//lê da memória na posição REM e armazena do RDM
+			if(cargaRDM == 1) rdm.cargaRDM(pc.PC);
+			if(cargaPC == 1) pc.cargaPC(rdm.RDM); 		//caso JMP JZ JN
+			if(cargaRI == 1) ri.cargaRI(rdm.RDM); 		//etapa final busca da instrução
+			if(cargaAC == 1) ac.cargaAC(ula.opULA(ac.AC, rdm.RDM));
+			if(incrementaPC == 1) {
+				pc.incrementa_pc();
+			}
+			if(cargaNZ == 1) {
+				if(ac.getAC() == 0) regZ.Z = 1;
+				if(ac.eh_negativo()) regN.N = 1;
+			}
+			
+			pc.printPc();			
+			rem.printREM();
+			rdm.printRDM();
+			ri.printRI();
 			ac.printAc();
-			pc.incrementa_pc();
-			pc.printPc();
+			
+			i++;
 		}
-		
-		if(opcode[0]== 0 && opcode[1]== 0 && opcode[2]== 0 && opcode[3]== 0) {
-			ac.AC = mem.memo[getRDM(mem.memo[pc.getPc()])];
-			System.out.print("lda\n");
-			ac.printAc();
-			pc.incrementa_pc();
-			pc.printPc();
-		}
-		
-		
 	}
-	
-
 }

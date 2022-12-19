@@ -18,12 +18,13 @@ public class Ri {
 		     }
 		   System.out.println();  
 		}
-	public void getOpcode(int []mem) {
+	public int[] getOpcode() {
 		int []opcode = new int[4];
 		
 		for(int i=0 ; i <= 3; i++){
-			opcode[i] = mem[i];
+			opcode[i] = RI[i];
     }
+		return opcode;
 }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
