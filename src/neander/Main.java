@@ -50,7 +50,7 @@ public class Main {
 		while(pc.getPc() < Memoria.memo.length) {				
 			control(unitControl.set_state(Decod.decod(ri.getOpcode()),regNZ.NZ));
 			mux.sel = sel;
-			ula.selULA = selULA;
+			ula.selULA = unitControl.getSelULA();
 			
 			if(cargaREM == 1) rem.cargaREM(mux.getAddr(pc.PC, rdm.RDM));	//sinal de controle p/ pegar valor do pc,carrega REM com valor do PC
 			if(read == 1) rdm.cargaRDM(mem.read(rem.getREM()));		//lê da memória na posição REM e armazena do RDM
