@@ -14,25 +14,35 @@ package neander;
 
 
 public class Memoria {
-	protected static int[][] memo = {
-			{0,0,1,0,0,1,0,0}, //#0		AC← MEM(end) //LDA 4 
-			{0,0,0,0,0,1,0,0}, //#1		end 4
-			{0,0,1,1,0,1,1,1}, //#2		AC← AC + 7  ADD 3
-			{0,0,0,0,0,0,1,1}, //#3		 3
-			{0,1,0,1,0,0,1,1}, //#4		PC <- end	AND 9 
-			{0,0,0,0,1,0,0,1}, //#5		end 9
-			{0,0,0,0,0,1,0,1}, //#6
-			{1,0,1,1,0,1,0,1},
-			{0,0,0,0,0,1,1,1}, // 
-			{0,0,0,0,1,1,1,1}, //#9
-			{0,0,0,1,0,1,0,1},
-			{0,0,0,0,0,1,0,1}, //#11
-			{1,0,1,1,0,1,0,1},
-			{0,0,0,0,0,1,0,1}, //#13
-			{1,0,1,1,0,1,0,1}
-		};
+	FileProcessor dados = new FileProcessor();
 	
-	public static void printMemo() {
+	private int[][] memo;//= {
+//			{0,0,1,0,0,1,0,0}, //#0		AC← MEM(end) //LDA 4 
+//			{0,0,0,0,0,1,0,0}, //#1		end 4
+//			{0,0,1,1,0,1,1,1}, //#2		AC← AC + 7  ADD 3
+//			{0,0,0,0,0,0,1,1}, //#3		 3
+//			{0,1,0,1,0,0,1,1}, //#4		PC <- end	AND 9 
+//			{0,0,0,0,1,0,0,1}, //#5		end 9
+//			{0,0,0,0,0,1,0,1}, //#6
+//			{1,0,1,1,0,1,0,1},
+//			{0,0,0,0,0,1,1,1}, // 
+//			{0,0,0,0,1,1,1,1}, //#9
+//			{0,0,0,1,0,1,0,1},
+//			{0,0,0,0,0,1,0,1}, //#11
+//			{1,0,1,1,0,1,0,1},
+//			{0,0,0,0,0,1,0,1}, //#13
+//			{1,0,1,1,0,1,0,1}
+//		};
+	
+	public int [][]getMemo() {
+		return memo;
+		
+	}
+	public int getMemLenght() {
+		return memo.length;
+		
+	}
+	public void printMemo() {
 		int result = 0;
 		int tmp[] = new int [8];
 		
@@ -61,13 +71,15 @@ public class Memoria {
 			return memo[y];
 	}
 	public Memoria() {
+		this.memo = dados.obterData();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
 	public static void main(String[] args) {
-		System.out.println(memo.length);
-		printMemo();
+//		System.out.println(memo.length);
+		Memoria mem = new Memoria();
+		mem.printMemo();
 	}
 
 }

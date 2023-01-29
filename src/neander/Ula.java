@@ -16,19 +16,19 @@ public class Ula {
 //		System.out.printf("selULA = %d", selULA);
 		if(selULA[0] == 0 && selULA[1] == 0 && selULA[2] == 0) { 	//ULA(ADD)
 			tmp = adder.sum(x, y);		
-			System.out.println("\nSOMA");
+			//System.out.println("\nSOMA");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 0 && selULA[2] == 1) { 	//ULA(AND)
 			tmp = andOp(x, y);
-			System.out.println("\nAND");
+			//System.out.println("\nAND");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 0) { 	//ULA(OR)
 			tmp = y;
-			System.out.println("\nOR");
+			//System.out.println("\nOR");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 1) { 	//ULA(NOT)
 			tmp = y;
-			System.out.println("\nNOT");
+			//System.out.println("\nNOT");
 		}
 		else if(selULA[1] == 0 && selULA[1] == 0 && selULA[2] == 0) { 	//ULA(LDA)
 			tmp = y;

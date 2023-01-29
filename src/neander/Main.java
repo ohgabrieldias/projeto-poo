@@ -47,7 +47,7 @@ public class Main {
 		Ri ri = new Ri();
 		
 		unitControl.state = 0; //define estado inicial
-		while(pc.getPc() < Memoria.memo.length) {				
+		while(pc.getPc() < 10) { //executa até rodar rodas as intr				
 			control(unitControl.set_state(Decod.decod(ri.getOpcode()),regNZ.NZ));
 			mux.sel = sel;
 			ula.selULA = unitControl.getSelULA();
@@ -65,13 +65,14 @@ public class Main {
 				if(ac.eh_negativo())regNZ.NZ[0] = 1;
 			}
 			
-			pc.printPc();			
-			rem.printREM();
-			rdm.printRDM();
-			ri.printRI();
+			//pc.printPc();			
+			//rem.printREM();
+			//rdm.printRDM();
+			//ri.printRI();
 			ac.printAc();
+			System.out.println(ac.binaryToDecimal());
 
 		}
-		Memoria.printMemo();
+		//mem.printMemo();
 	}
 }

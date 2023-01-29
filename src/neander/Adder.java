@@ -52,12 +52,12 @@ public class Adder {
 		Adder adder = new Adder();
 		Accumulator ac = new Accumulator();
 		Memoria mem = new Memoria();
-		
-		int s [] = adder.sum(mem.memo[2], mem.memo[1]);
-		for(int count=0 ; count <= 7; count++){
-            System.out.print(s[count]);
-        }
-		System.out.printf("\n%d Cout\n", adder.Cout);
+//		
+//		int s [] = adder.sum(mem.memo[2], mem.memo[1]);
+//		for(int count=0 ; count <= 7; count++){
+//            System.out.print(s[count]);
+//        }
+//		System.out.printf("\n%d Cout\n", adder.Cout);
 	}
 	
 

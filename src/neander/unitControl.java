@@ -19,17 +19,17 @@ public class unitControl {
 								//0 1 2 3 4 5 6 7 8 9 10
 				int []tmp_ctrl = {0,0,0,1,0,0,0,0,0,0,0}; //start sel= 0,carga REM
 				stt = tmp_ctrl;
-				System.out.println("\nfim estado 0");
+				//System.out.println("\nfim estado 0");
 			break;
 			case 1:
 				int []tmp_ctrl1 = {0,1,0,0,1,0,0,0,0,0,0}; //read PC + 1
 				stt = tmp_ctrl1;
-				System.out.println("\nfim estado 1");
+				//System.out.println("\nfim estado 1");
 			break;
 			case 2:
 				int []tmp_ctrl2 = {0,0,0,0,0,0,0,0,0,0,1}; //RDM -> RI
 				stt = tmp_ctrl2;
-				System.out.println("\nfim estado 2");
+				//System.out.println("\nfim estado 2");
 			break;
 			case 3:
 				if((op == 9 && nz[0] == 0) || (op == 10 && nz[1] == 0)) {	//JN if N=0 JZ if Z=0
@@ -53,7 +53,7 @@ public class unitControl {
 					stt = tmp_ctrl3;
 				}
 				
-				System.out.println("\nfim estado 3");
+				//System.out.println("\nfim estado 3");
 				break;
 			case 4:
 				if(op == 8 || (op == 9 && nz[0] == 1) || (op == 10 && nz[1] == 1)) {	//JMP JN if N=1 JZ if Z=1
@@ -64,7 +64,7 @@ public class unitControl {
 					int []tmp_ctrl4 = {0,1,0,0,1,0,0,0,0,0,0}; //read PC + 1
 					stt = tmp_ctrl4;
 				}
-				System.out.println("\nfim estado 4");
+				//System.out.println("\nfim estado 4");
 			break;
 			case 5:
 				if(op == 8 || (op == 9 && nz[0] == 1) || (op == 10 && nz[1] == 1)) {	//JMP JN if N=1 JZ if Z=1
@@ -75,12 +75,12 @@ public class unitControl {
 					int []tmp_ctrl5 = {0,0,1,1,0,0,0,0,0,0,0}; //sel=1,carga REM
 					stt = tmp_ctrl5;
 				}
-				System.out.println("\nfim estado 5");
+				//System.out.println("\nfim estado 5");
 			break;
 			case 6:
 				int []tmp_ctrl6 = {0,0,0,0,1,0,0,0,0,0,0}; //sel=1,carga RDM
 				stt = tmp_ctrl6;
-				System.out.println("\nfim estado 6");
+				//System.out.println("\nfim estado 6");
 			break;
 			case 7:
 				if(op == 2) {	//LDA
@@ -116,7 +116,7 @@ public class unitControl {
 					int []tmp_ctrl7 = {0,0,0,0,0,1,0,0,0,0,0}; //write
 					stt = tmp_ctrl7;
 				}
-				System.out.println("\nfim estado 7");
+				// System.out.println("\nfim estado 7");
 			break;
 			}
 		

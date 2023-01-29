@@ -1,0 +1,147 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Accumulator",
+            "request": "launch",
+            "mainClass": "neander.Accumulator",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Adder",
+            "request": "launch",
+            "mainClass": "neander.Adder",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch And",
+            "request": "launch",
+            "mainClass": "neander.And",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch DataExtractor",
+            "request": "launch",
+            "mainClass": "neander.DataExtractor",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Decod",
+            "request": "launch",
+            "mainClass": "neander.Decod",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch FileProcessor",
+            "request": "launch",
+            "mainClass": "neander.FileProcessor",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch FullAdder",
+            "request": "launch",
+            "mainClass": "neander.FullAdder",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch HalfAdder",
+            "request": "launch",
+            "mainClass": "neander.HalfAdder",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "neander.Main",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Memoria",
+            "request": "launch",
+            "mainClass": "neander.Memoria",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Mux",
+            "request": "launch",
+            "mainClass": "neander.Mux",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch NZ",
+            "request": "launch",
+            "mainClass": "neander.NZ",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Pc",
+            "request": "launch",
+            "mainClass": "neander.Pc",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Rdm",
+            "request": "launch",
+            "mainClass": "neander.Rdm",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Rem",
+            "request": "launch",
+            "mainClass": "neander.Rem",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ri",
+            "request": "launch",
+            "mainClass": "neander.Ri",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ula",
+            "request": "launch",
+            "mainClass": "neander.Ula",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch Xor",
+            "request": "launch",
+            "mainClass": "neander.Xor",
+            "projectName": "neander"
+        },
+        {
+            "type": "java",
+            "name": "Launch unitControl",
+            "request": "launch",
+            "mainClass": "neander.unitControl",
+            "projectName": "neander"
+        }
+    ]
+}
