@@ -48,7 +48,8 @@ public class Main {
 		JanelaGrafica janela = new JanelaGrafica();
 		
 		unitControl.state = 0; //define estado inicial
-		while(pc.getPc() < 10) { //executa até rodar rodas as intr				
+		while((Decod.decod(ri.getOpcode())) != 15) { //executa até rodar rodas as intr				
+			
 			control(unitControl.set_state(Decod.decod(ri.getOpcode()),regNZ.NZ));
 			mux.sel = sel;
 			ula.selULA = unitControl.getSelULA();
