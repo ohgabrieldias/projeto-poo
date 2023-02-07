@@ -15,7 +15,7 @@ public class FileProcessor {
 	}
 	private static int contaLinhas() {
 		int qtdLinhas = 0;
-		 String fileName = "te.txt";
+		 String fileName = "exemplo.txt";
 
 	        try {
 	            Scanner file = new Scanner(new File(fileName));
@@ -39,7 +39,7 @@ public class FileProcessor {
     // System.out.println(contaLinhas());
     int aux = -1;
     boolean resetou = false;
-    String fileName = "te.txt";
+    String fileName = "exemplo.txt";
     try {
       Scanner file = new Scanner(new File(fileName));
       int lineCounter = 0;

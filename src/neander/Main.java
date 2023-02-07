@@ -73,6 +73,6 @@ public class Main {
 			System.out.println(ac.binaryToDecimal());
 
 		}
-		//mem.printMemo();
+		mem.printMemo();
 	}
 }
