@@ -1,7 +1,7 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -29,13 +29,6 @@
             "name": "Launch And",
             "request": "launch",
             "mainClass": "neander.And",
-            "projectName": "neander"
-        },
-        {
-            "type": "java",
-            "name": "Launch DataExtractor",
-            "request": "launch",
-            "mainClass": "neander.DataExtractor",
             "projectName": "neander"
         },
         {
@@ -127,13 +120,6 @@
             "name": "Launch Ula",
             "request": "launch",
             "mainClass": "neander.Ula",
-            "projectName": "neander"
-        },
-        {
-            "type": "java",
-            "name": "Launch Xor",
-            "request": "launch",
-            "mainClass": "neander.Xor",
             "projectName": "neander"
         },
         {

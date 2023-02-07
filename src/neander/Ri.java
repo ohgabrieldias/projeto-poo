@@ -10,6 +10,21 @@ public class Ri {
 	public void cargaRI(int []ri){	//sinal de controle
 		RI = ri;	
 	}
+	int binaryToDecimal() {
+		int result = 0;
+		for(int i=(RI.length -1) ; i >= 0; i--){
+			if(RI[i] == 1) {
+				result += Math.pow(2,(RI.length -i -1));
+				//System.out.println(result);
+			}
+        }
+		//System.out.println(result);
+		return result;
+	}
+	
+	public int getRI() {
+		return binaryToDecimal();
+	}
 	
 	void printRI() {
 		System.out.print("RI = ");

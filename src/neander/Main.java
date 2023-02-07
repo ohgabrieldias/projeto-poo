@@ -45,6 +45,7 @@ public class Main {
 		Rdm rdm = new Rdm();
 		NZ regNZ = new NZ();
 		Ri ri = new Ri();
+		JanelaGrafica janela = new JanelaGrafica();
 		
 		unitControl.state = 0; //define estado inicial
 		while(pc.getPc() < 10) { //executa até rodar rodas as intr				
@@ -71,6 +72,8 @@ public class Main {
 			//ri.printRI();
 			ac.printAc();
 			System.out.println(ac.binaryToDecimal());
+			janela.atualizaValores(Integer.toString(pc.getPc()), Integer.toString(rem.getREM()), 
+                                Integer.toString(rdm.getRDM()), Integer.toString(ri.getRI()), Integer.toString(ac.getAC()));
 
 		}
 		mem.printMemo();
