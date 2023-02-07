@@ -23,7 +23,7 @@ public class Ula {
 			//System.out.println("\nAND");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 0) { 	//ULA(OR)
-			tmp = y;
+			tmp = orOp(x, y);
 			//System.out.println("\nOR");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 1) { 	//ULA(NOT)
