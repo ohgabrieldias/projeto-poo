@@ -27,7 +27,7 @@ public class Ula {
 			//System.out.println("\nOR");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 1) { 	//ULA(NOT)
-			tmp = notOp(y);
+			tmp = notOp(x);
 			//System.out.println("\nNOT");
 		}
 		else if(selULA[1] == 0 && selULA[1] == 0 && selULA[2] == 0) { 	//ULA(LDA)
