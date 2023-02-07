@@ -27,7 +27,7 @@ public class Ula {
 			//System.out.println("\nOR");
 		}
 		else if(selULA[0] == 0 && selULA[1] == 1 && selULA[2] == 1) { 	//ULA(NOT)
-			tmp = y;
+			tmp = notOp(y);
 			//System.out.println("\nNOT");
 		}
 		else if(selULA[1] == 0 && selULA[1] == 0 && selULA[2] == 0) { 	//ULA(LDA)
@@ -60,10 +60,19 @@ public class Ula {
 		return tmp;
 	}
 	
-	public static int []not(int x[],int y[]){
-		return y;
-		
+	public int []notOp(int x[]){
+ 
+		int []tmp = new int[8];
+  
+		for (int i = (x.length - 1); i >= 0 ; i --) {
+			if(x[i] == 1)
+        			tmp[i] = 0;
+      			else
+        			tmp[i] = 1;
+		}
+		return tmp;
 	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
