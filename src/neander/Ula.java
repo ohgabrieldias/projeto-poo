@@ -60,7 +60,7 @@ public class Ula {
 		return tmp;
 	}
 	
-	public int []notOp(int x[]){
+	public static int []notOp(int x[]){
  
 		int []tmp = new int[8];
   
