@@ -9,6 +9,9 @@ public class FileProcessor {
 	private int [][]matrix;
 	
 	public int [][]obterData(){
+		private int [][]matrix;
+	
+	public int [][]obterData(){
 		extrairDados();
 		return matrix;
 		
@@ -38,33 +41,20 @@ public class FileProcessor {
 //      Scanner input = new Scanner(System.in);
 //	      System.out.println(contaLinhas());
 	      String fileName = "te.txt";
-
         try {
             Scanner file = new Scanner(new File(fileName));
             int lineCounter = 0;
-            String t = "HHH"; 
             while (file.hasNextLine()) {
                 String line = file.nextLine();
-                
-                if(line.length() >= 3){
-                    t = line.substring(0, 3);
-                }
 
-                if (((lineCounter % 2 == 0) && (!(t.equals("NOP"))) && (!(t.equals("HLT"))))) { //linhas pares
+                if (line.length() > 3) {
                     String[] parts = line.split(" ");
                     String mnemonic = parts[0];
                     
                     int decimal = Integer.parseInt(parts[1]);
-                    String binary = Integer.toBinaryString(decimal);
                     String tmp = mnemonic;
 
                     switch (tmp) {
-                        case "NOP":
-                            matrix[lineCounter][0] = 0;
-                            matrix[lineCounter][1] = 0;
-                            matrix[lineCounter][2] = 0;
-                            matrix[lineCounter][3] = 0;
-                            break;
                         case "STA":
                             matrix[lineCounter][0] = 0;
                             matrix[lineCounter][1] = 0;
@@ -96,12 +86,6 @@ public class FileProcessor {
                             matrix[lineCounter][2] = 0;
                             matrix[lineCounter][3] = 1;
                             break;
-                        case "NOT":
-                            matrix[lineCounter][0] = 0;
-                            matrix[lineCounter][1] = 1;
-                            matrix[lineCounter][2] = 1;
-                            matrix[lineCounter][3] = 0;
-                            break;
                         case "JMP":
                             matrix[lineCounter][0] = 1;
                             matrix[lineCounter][1] = 0;
@@ -120,38 +104,39 @@ public class FileProcessor {
                             matrix[lineCounter][2] = 1;
                             matrix[lineCounter][3] = 0;
                             break;
-                        case "HLT":
-                            matrix[lineCounter][0] = 1;
-                            matrix[lineCounter][1] = 1;
-                            matrix[lineCounter][2] = 1;
-                            matrix[lineCounter][3] = 1;
-                            break;
+                    } 
+
+                    lineCounter++;
+
+                    int i = 7;
+		
+                    while(decimal > 0){    
+                        matrix[lineCounter][i--] = decimal%2;    
+                        decimal = decimal/2;    
                     }
-            
-
-                int index = 0;
-                while(index < (4 - binary.length() )){
-                    matrix[lineCounter][index + 4] = 0;
-                    index++;
-                }
-
-                for (int i = (index + 4); i < 8; i++) {
-                    matrix[lineCounter][i] = Character.getNumericValue(binary.charAt(i - (index + 4)));                          
-                }
-
-                  
-                } else { //linhas impares
-                    if(line.equals("NOP")){
+                } 
+                else 
+                {
+                    if(line.equals("NOP"))
+                    {
                         matrix[lineCounter][0] = 0;
                         matrix[lineCounter][1] = 0;
                         matrix[lineCounter][2] = 0;
                         matrix[lineCounter][3] = 0;
                     }
-                    else if(line.equals("HLT")){
+                    else if(line.equals("HLT"))
+                    {
                         matrix[lineCounter][0] = 1;
                         matrix[lineCounter][1] = 1;
                         matrix[lineCounter][2] = 1;
                         matrix[lineCounter][3] = 1;
+                    }
+                    else if(line.equals("NOT"))
+                    {
+                        matrix[lineCounter][0] = 0;
+                        matrix[lineCounter][1] = 1;
+                        matrix[lineCounter][2] = 1;
+                        matrix[lineCounter][3] = 0;
                     }
                     else{
                         int decimal = Integer.parseInt(line);
@@ -161,19 +146,6 @@ public class FileProcessor {
                             matrix[lineCounter][i--] = decimal%2;    
                             decimal = decimal/2;    
                         }
-                        // int aux = 0;
-                        // if(binary.length() > 7) aux = -7;
-                        // else aux = 0;
-                        // while(aux < (7 - binary.length() )){
-                        //     matrix[lineCounter][aux + 4] = 0;
-                        //     aux++;
-                        // }
-                        // System.out.println(binary);
-                        // for (int i = (aux + 4); i < 8; i++) {
-                        //     matrix[lineCounter][i] = Character.getNumericValue(binary.charAt(i - (aux + 7)));
-                        // //matrix[lineCounter][i] = 0;                 	  
-                                
-                        // }
                 }
               }
               lineCounter++;
