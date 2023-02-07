@@ -9,9 +9,6 @@ public class FileProcessor {
 	private int [][]matrix;
 	
 	public int [][]obterData(){
-		private int [][]matrix;
-	
-	public int [][]obterData(){
 		extrairDados();
 		return matrix;
 		
