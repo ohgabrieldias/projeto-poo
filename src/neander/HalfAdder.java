@@ -4,8 +4,8 @@ public class HalfAdder {
 	private And and = null;
 	protected int Cout;
 	private int s;
-	//private Xor xor = null;
-	
+	private Xor xor = new Xor();
+
 	public HalfAdder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -15,7 +15,7 @@ public class HalfAdder {
 		int temp [] = new int[2];
 		
 		temp[0] = and.and(x, y); //carry
-		temp[1] = x ^ y;		//sum
+		temp[1] = xor.xor(x, y);		//sum
 		return temp;
 	}
 	
@@ -24,7 +24,7 @@ public class HalfAdder {
 		and = new And();
 		
 		Cout = and.and(x, y); //carry
-		return x ^ y;		//sum
+		return xor.xor(x, y);		//sum
 		 
 	}
 	public static void main(String[] args) {

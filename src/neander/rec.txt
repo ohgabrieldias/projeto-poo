@@ -1,0 +1,4 @@
+listar livros e instituições
+relatorio p/ livro (aborda ou n o assunto, se aborda de que forma
+atualizar fuluxo ler x)
+atualizar transições
